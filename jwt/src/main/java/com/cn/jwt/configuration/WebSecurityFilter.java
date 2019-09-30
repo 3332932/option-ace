@@ -2,12 +2,12 @@ package com.cn.jwt.configuration;
 
 import com.alibaba.fastjson.JSONArray;
 import com.auth0.jwt.exceptions.JWTDecodeException;
-import com.auth0.jwt.exceptions.SignatureVerificationException;
 import com.auth0.jwt.exceptions.TokenExpiredException;
+import com.cn.base.utils.ResultMapUtils;
 import com.cn.jwt.entity.JwtToken;
-import com.cn.jwt.entity.User;
-import com.cn.jwt.utils.ThreadLocals;
-import com.cn.jwt.utils.WorkUtils;
+
+import com.cn.user.entity.User;
+import com.cn.user.utils.ThreadLocals;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -66,25 +66,25 @@ public class WebSecurityFilter implements WebMvcConfigurer {
                     User user = jwtToken.getInfoByToken(token, User.class);
                     ThreadLocals.setCurrentUser(user);
                     if (user == null) {
-                        writeOut(response,WorkUtils.getResultMap("10100","token解析错误"));
+                        writeOut(response, ResultMapUtils.getResultMap("10100","token解析错误"));
                         return false;
                     }
                     return true;
                 }else {
                     //跳转到登录页
-                    writeOut(response,WorkUtils.getResultMap("10101","token不存在,请在header里加token或X-Token"));
+                    writeOut(response,ResultMapUtils.getResultMap("10101","token不存在,请在header里加token或X-Token"));
                     return false;
                 }
             }catch (TokenExpiredException e){
-                writeOut(response,WorkUtils.getResultMap("10102","token失效"));
+                writeOut(response,ResultMapUtils.getResultMap("10102","token失效"));
                 return false;
             }catch (JWTDecodeException e){
-                writeOut(response,WorkUtils.getResultMap("10103","token异常"));
+                writeOut(response,ResultMapUtils.getResultMap("10103","token异常"));
                 return false;
             }
             catch (Exception e) {
                 e.printStackTrace();
-                writeOut(response,WorkUtils.getResultMap("10104","登录异常"));
+                writeOut(response,ResultMapUtils.getResultMap("10104","登录异常"));
                 return false;
             }
 
