@@ -9,6 +9,7 @@ import io.swagger.annotations.ApiOperation;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.shiro.crypto.hash.SimpleHash;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +41,6 @@ public class LoginController {
             User currentUser = ThreadLocals.getCurrentUser();
             currentUser.setPassword(null);
             currentUser.setSalt(null);
-
             subject.isPermitted("*");
             Map<String, Object> resultDataMap = ResultMapUtils.getResultMap(currentUser);
             String token = jwtToken.createToken(currentUser);

@@ -32,7 +32,6 @@ public class CustomExceptionHandler {
         if (e instanceof UnauthorizedException){
             return ResultMapUtils.getResultMap("10200","没有权限");
         }else if (e instanceof UnauthenticatedException){
-            logger.error("",e);
             return ResultMapUtils.getResultMap("10105","权限错误，请重新登录");
         }
         else {

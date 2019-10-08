@@ -1,15 +1,13 @@
-package com.cn.user;
+package com.cn;
 
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan("com.cn.user.mapper")
-public class UserApplication {
+public class JwtApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(UserApplication.class, args);
+        SpringApplication.run(JwtApplication.class, args);
     }
 
 }
