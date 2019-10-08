@@ -1,6 +1,9 @@
 package com.cn.shrio.shiro;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.cn.user.service.PermissionService;
+import com.cn.user.entity.Permission;
+import com.cn.user.entity.Role;
+import com.cn.user.entity.User;
+import com.cn.user.service.IPermissionService;
 import com.cn.user.service.impl.RoleServiceImpl;
 import com.cn.user.service.impl.UserServiceImpl;
 import com.cn.user.utils.ThreadLocals;
@@ -29,7 +32,7 @@ public class UserRealm extends AuthorizingRealm {
     @Autowired
     private RoleServiceImpl roleServiceImpl;
     @Autowired
-    private PermissionService permissionServiceImpl;
+    private IPermissionService permissionServiceImpl;
 
     private Logger logger = LoggerFactory.getLogger(UserRealm.class);
 
@@ -44,20 +47,19 @@ public class UserRealm extends AuthorizingRealm {
         logger.info("---------------------------->授权认证：");
         SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
         User user = ThreadLocals.getCurrentUser();
-        List<Role> roleList = roleServiceImpl.getRoleByUserId(user.getUserId());
-
+        List<Role> roleList = roleServiceImpl.list(new QueryWrapper<Role>().eq("user_id",user.getUserId()));
         Set<String> roleStr = new HashSet();
-        List<Long> roleLong = new ArrayList<>();
+        List<Integer> roleLong = new ArrayList<>();
         roleList.forEach(e -> {
             roleStr.add(e.getRoleName());
             roleLong.add(e.getRoleId());
         });
-        user.setRole(roleStr);
+        user.setRoles(new ArrayList<String>(roleStr));
         authorizationInfo.setRoles(roleStr);
-        List<Permission> permissions = permissionServiceImpl.getPermissionByRoleIds(roleLong);
+        List<Permission> permissions = permissionServiceImpl.list(new QueryWrapper<Permission>().in("role_id",roleLong));
         Set<String> stringPermissions = new HashSet();
         permissions.forEach(e->stringPermissions.add(e.getPermissionValue()));
-        if ("admin".equals(user.getUsername())){
+        if ("admin".equals(user.getUserName())){
             stringPermissions.add("user:list");
             stringPermissions.add("role:list");
             stringPermissions.add("permission:list");
@@ -92,7 +94,7 @@ public class UserRealm extends AuthorizingRealm {
         }
         //密码可以通过SimpleHash加密，然后保存进数据库。
         //此处是获取数据库内的账号、密码、盐值，保存到登陆信息info中
-        SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(user.getUsername(),
+        SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(user.getUserName(),
                 user.getPassword(),
                 ByteSource.Util.bytes(user.getSalt()),
                 getName());

@@ -2,6 +2,7 @@ package com.cn.shrio.controller;
 
 import com.cn.base.utils.ResultMapUtils;
 import com.cn.jwt.entity.JwtToken;
+import com.cn.user.entity.User;
 import com.cn.user.utils.ThreadLocals;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -26,13 +27,13 @@ public class LoginController {
     public Object login(@RequestBody User user){
         try {
             Subject subject = SecurityUtils.getSubject();
-            UsernamePasswordToken shiroToken = new UsernamePasswordToken(user.getUsername(), user.getPassword());
+            UsernamePasswordToken shiroToken = new UsernamePasswordToken(user.getUserName(), user.getPassword());
             // 执行认证登陆
             subject.login(shiroToken);
             User currentUser = ThreadLocals.getCurrentUser();
             currentUser.setPassword(null);
             subject.isPermitted("*");
-            Map<String, Object> resultDataMap = ResultMapUtils.getResultDataMap(currentUser);
+            Map<String, Object> resultDataMap = ResultMapUtils.getResultMap(currentUser);
             String token = jwtToken.createToken(currentUser);
             resultDataMap.put("token",token);
             return resultDataMap;
