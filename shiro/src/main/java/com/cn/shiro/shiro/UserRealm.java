@@ -4,8 +4,10 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.cn.user.entity.Permission;
 import com.cn.user.entity.Role;
 import com.cn.user.entity.User;
+import com.cn.user.entity.UserRole;
 import com.cn.user.service.IPermissionService;
 import com.cn.user.service.IRoleService;
+import com.cn.user.service.IUserRoleService;
 import com.cn.user.service.IUserService;
 import com.cn.user.utils.ThreadLocals;
 import org.apache.shiro.authc.*;
@@ -23,6 +25,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * @author yshh44
@@ -32,6 +35,8 @@ public class UserRealm extends AuthorizingRealm {
     private IUserService userServiceImpl;
     @Autowired
     private IRoleService roleServiceImpl;
+    @Autowired
+    private IUserRoleService userRoleServiceImpl;
     @Autowired
     private IPermissionService permissionServiceImpl;
 
@@ -48,7 +53,9 @@ public class UserRealm extends AuthorizingRealm {
         logger.info("---------------------------->授权认证：");
         SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
         User user = ThreadLocals.getCurrentUser();
-        List<Role> roleList = roleServiceImpl.list(new QueryWrapper<Role>().eq("user_id",user.getUserId()));
+        List<UserRole> userRoles = userRoleServiceImpl.list(new QueryWrapper<UserRole>().eq("user_id", user.getUserId()));
+        List<String> roleIds = userRoles.stream().map(e -> e.getRoleId()).collect(Collectors.toList());
+        List<Role> roleList = roleServiceImpl.list(new QueryWrapper<Role>().in("role_id",roleIds));
         Set<String> roleStr = new HashSet();
         List<Integer> roleLong = new ArrayList<>();
         roleList.forEach(e -> {

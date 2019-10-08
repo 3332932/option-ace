@@ -39,6 +39,8 @@ public class LoginController {
             subject.login(shiroToken);
             User currentUser = ThreadLocals.getCurrentUser();
             currentUser.setPassword(null);
+            currentUser.setSalt(null);
+
             subject.isPermitted("*");
             Map<String, Object> resultDataMap = ResultMapUtils.getResultMap(currentUser);
             String token = jwtToken.createToken(currentUser);
@@ -53,7 +55,7 @@ public class LoginController {
     }
     @ApiOperation("注册")
     @PostMapping("/register")
-    public Map<String,Object> register(@Valid User user, BindingResult bindingResult){
+    public Map<String,Object> register(@Valid @RequestBody User user, BindingResult bindingResult){
         if (bindingResult.hasErrors()){
             return ResultMapUtils.getErrorResultMap(bindingResult.getFieldError().getDefaultMessage());
         }
