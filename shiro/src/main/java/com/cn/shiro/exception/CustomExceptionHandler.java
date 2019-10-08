@@ -1,4 +1,4 @@
-package com.cn.shrio.exception;
+package com.cn.shiro.exception;
 
 import com.cn.base.utils.ResultMapUtils;
 import org.apache.shiro.authz.UnauthenticatedException;

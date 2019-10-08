@@ -1,11 +1,9 @@
-package com.cn.shrio;
+package com.cn.shiro;
 
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan("com.cn.shrio.mapper")
 public class ShrioApplication {
 
     public static void main(String[] args) {

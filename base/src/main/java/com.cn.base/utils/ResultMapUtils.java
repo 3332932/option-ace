@@ -34,7 +34,15 @@ public class ResultMapUtils {
     public static Map<String, Object> getErrorResultMap() {
         return getResultMap("-1", "service error");
     }
-
+    /**
+     * 返回码 -1
+     * 返回信息 service error
+     *
+     * @return
+     */
+    public static Map<String, Object> getErrorResultMap(String error) {
+        return getResultMap("202", error);
+    }
     /**
      * 返回码 0
      * 返回信息 success

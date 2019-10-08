@@ -1,4 +1,4 @@
-package com.cn.shrio.configuration;
+package com.cn.shiro.configuration;
 
 import org.springframework.core.annotation.Order;
 

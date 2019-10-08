@@ -1,4 +1,4 @@
-package com.cn.shrio.shiro;
+package com.cn.shiro.shiro;
 
 
 import org.apache.shiro.authc.credential.CredentialsMatcher;

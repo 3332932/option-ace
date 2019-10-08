@@ -13,6 +13,8 @@ import lombok.experimental.Accessors;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * <p>
  * 用户表
@@ -40,10 +42,12 @@ public class User implements Serializable {
      */
     @TableField("user_name")
     @ApiModelProperty(value = "用户名称")
+    @NotNull(message = "用户名称不能为空")
     private String userName;
     /**
      * 密码
      */
+    @NotNull(message = "用户密码不能为空")
     @TableField("password")
     @ApiModelProperty(value = "密码")
     private String password;

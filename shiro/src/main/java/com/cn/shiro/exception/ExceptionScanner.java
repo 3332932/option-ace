@@ -1,4 +1,4 @@
-package com.cn.shrio.exception;
+package com.cn.shiro.exception;
 
 import org.springframework.context.annotation.Import;
 

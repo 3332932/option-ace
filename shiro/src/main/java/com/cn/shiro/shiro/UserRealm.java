@@ -1,11 +1,12 @@
-package com.cn.shrio.shiro;
+package com.cn.shiro.shiro;
+
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.cn.user.entity.Permission;
 import com.cn.user.entity.Role;
 import com.cn.user.entity.User;
 import com.cn.user.service.IPermissionService;
-import com.cn.user.service.impl.RoleServiceImpl;
-import com.cn.user.service.impl.UserServiceImpl;
+import com.cn.user.service.IRoleService;
+import com.cn.user.service.IUserService;
 import com.cn.user.utils.ThreadLocals;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
@@ -28,9 +29,9 @@ import java.util.Set;
  */
 public class UserRealm extends AuthorizingRealm {
     @Autowired
-    private UserServiceImpl userServiceImpl;
+    private IUserService userServiceImpl;
     @Autowired
-    private RoleServiceImpl roleServiceImpl;
+    private IRoleService roleServiceImpl;
     @Autowired
     private IPermissionService permissionServiceImpl;
 

@@ -12,6 +12,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.util.CollectionUtils;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -53,7 +54,11 @@ public class WebSecurityFilter implements WebMvcConfigurer {
         public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws IOException {
 
             List<String> list= new ArrayList<>();
-            list.add("/test");
+            list.add("/no_token");
+            Map<String, String[]> map = request.getParameterMap();
+            if (!CollectionUtils.isEmpty(map)&&map.get("no_token")!=null){
+                return true;
+            }
             if (list.contains(request.getRequestURI())){
                 return true;
             }

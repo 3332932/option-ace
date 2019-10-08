@@ -2,18 +2,18 @@ package com.cn.user.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.cn.base.utils.ResultMapUtils;
+import com.cn.user.entity.User;
+import com.cn.user.service.IUserService;
+import freemarker.template.SimpleHash;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import com.cn.base.utils.ResultMapUtils;
+
+import javax.validation.Valid;
 import java.util.Map;
-import com.cn.user.entity.User;
-import com.cn.user.service.IUserService;
-
-
-
-
 
 /**
  * <p>
