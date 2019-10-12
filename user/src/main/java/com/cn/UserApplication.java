@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan("com.cn.user.mapper")
+@MapperScan("com.cn.mapper")
 public class UserApplication {
 
     public static void main(String[] args) {

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cn.dynamic.mapper.DmExpressB30Mapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cn.dynamic.entity.DmExpressB30">
+        <result column="YEAR_MONTHS" property="yearMonths" />
+        <result column="CARRIER_NO" property="carrierNo" />
+        <result column="CARRIER_NAME" property="carrierName" />
+        <result column="DELIVERY_LOCNO" property="deliveryLocno" />
+        <result column="DELIVER_LOCNAME" property="deliverLocname" />
+        <result column="LOCNO_NAME" property="locnoName" />
+        <result column="ORDER_FORM" property="orderForm" />
+        <result column="SYS_NO" property="sysNo" />
+        <result column="T_NUMBER" property="tNumber" />
+        <result column="AMOUNT" property="amount" />
+    </resultMap>
+
+</mapper>

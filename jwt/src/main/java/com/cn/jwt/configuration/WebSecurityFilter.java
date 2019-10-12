@@ -6,8 +6,8 @@ import com.auth0.jwt.exceptions.TokenExpiredException;
 import com.cn.base.utils.ResultMapUtils;
 import com.cn.jwt.entity.JwtToken;
 
-import com.cn.user.entity.User;
-import com.cn.user.utils.ThreadLocals;
+import com.cn.entity.User;
+import com.cn.dynamic.utils.ThreadLocals;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

@@ -12,7 +12,7 @@ public class MpGenerator {
 //        assert (false) : "代码生成属于危险操作，请确定配置后取消断言执行代码生成！";
         AutoGenerator mpg = new AutoGenerator();
         // 选择 freemarker 引擎，默认 Velocity
-       String sourcePath = "E:\\belle\\option-ace\\user\\src\\main\\java";
+       String sourcePath = "E:\\belle\\option-ace\\src\\src\\main\\java";
        String basePackage = "com.cn.user";
 
         // 全局配置
@@ -30,6 +30,8 @@ public class MpGenerator {
         // XML columList
         gc.setBaseColumnList(false);
         gc.setFileOverride(true);
+        //设置service接口的命名方式（默认的是前面加I）
+        gc.setServiceName("%sService");
         mpg.setGlobalConfig(gc);
 
         // 数据源配置
@@ -55,7 +57,7 @@ public class MpGenerator {
                 .entityTableFieldAnnotationEnable(true)
                 .setRestControllerStyle(true)
                 .setEntityLombokModel(true)
-                .setInclude(new String[]{"user","role","permission","user_role","role_permission"});
+                .setInclude(new String[]{"dm_base_tms_send_bill_info","edw_fact_send_all_detail"});
         mpg.setStrategy(strategy);
 
         // 包配置

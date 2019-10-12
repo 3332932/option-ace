@@ -1,7 +1,7 @@
 package com.cn.api;
 
 import com.cn.jwt.entity.JwtToken;
-import com.cn.user.entity.User;
+import com.cn.entity.User;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

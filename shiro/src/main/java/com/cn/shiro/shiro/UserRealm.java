@@ -1,15 +1,15 @@
 package com.cn.shiro.shiro;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.cn.user.entity.Permission;
-import com.cn.user.entity.Role;
-import com.cn.user.entity.User;
-import com.cn.user.entity.UserRole;
-import com.cn.user.service.IPermissionService;
-import com.cn.user.service.IRoleService;
-import com.cn.user.service.IUserRoleService;
-import com.cn.user.service.IUserService;
-import com.cn.user.utils.ThreadLocals;
+import com.cn.entity.Permission;
+import com.cn.entity.Role;
+import com.cn.entity.User;
+import com.cn.entity.UserRole;
+import com.cn.service.PermissionService;
+import com.cn.service.RoleService;
+import com.cn.service.UserRoleService;
+import com.cn.service.UserService;
+import com.cn.dynamic.utils.ThreadLocals;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
@@ -32,13 +32,13 @@ import java.util.stream.Collectors;
  */
 public class UserRealm extends AuthorizingRealm {
     @Autowired
-    private IUserService userServiceImpl;
+    private UserService userServiceImpl;
     @Autowired
-    private IRoleService roleServiceImpl;
+    private RoleService roleServiceImpl;
     @Autowired
-    private IUserRoleService userRoleServiceImpl;
+    private UserRoleService userRoleServiceImpl;
     @Autowired
-    private IPermissionService permissionServiceImpl;
+    private PermissionService permissionServiceImpl;
 
     private Logger logger = LoggerFactory.getLogger(UserRealm.class);
 

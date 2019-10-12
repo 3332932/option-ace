@@ -12,8 +12,8 @@ import java.util.Calendar;
         prefix = "spring.jwt",
         ignoreUnknownFields = true
 )
-@Getter
 @Setter
+@Getter
 public class JwtProperties {
 
     private String secret = "pWDt0Cx#9l8h8eS9%xQ*zBEHMY6M3BIgA&1PfR0VDgkUFIq$aWmnjOKJAZTcvUD3uILZj1uatw^W1Fz$XAlhcG75dRYWlVcZ%ie";

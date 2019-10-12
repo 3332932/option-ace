@@ -2,14 +2,13 @@ package com.cn.shiro.controller;
 
 import com.cn.base.utils.ResultMapUtils;
 import com.cn.jwt.entity.JwtToken;
-import com.cn.user.entity.User;
-import com.cn.user.service.impl.UserServiceImpl;
-import com.cn.user.utils.ThreadLocals;
+import com.cn.entity.User;
+import com.cn.service.impl.UserServiceImpl;
+import com.cn.dynamic.utils.ThreadLocals;
 import io.swagger.annotations.ApiOperation;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
-import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.shiro.crypto.hash.SimpleHash;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
