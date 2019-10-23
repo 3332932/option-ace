@@ -1,4 +1,4 @@
-package com.cn.api;
+package com.cn.api.controller;
 
 import com.cn.jwt.entity.JwtToken;
 import com.cn.entity.User;

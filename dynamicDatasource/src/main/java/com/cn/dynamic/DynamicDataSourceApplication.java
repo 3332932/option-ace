@@ -1,4 +1,4 @@
-package com.cn;
+package com.cn.dynamic;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
@@ -9,10 +9,11 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @EnableAutoConfiguration
 @ComponentScan(value = "com.cn")
-public class ApiApplication {
+@MapperScan("com.cn.dynamic.mapper")
+public class DynamicDataSourceApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ApiApplication.class, args);
+        SpringApplication.run(DynamicDataSourceApplication.class, args);
     }
 
 }

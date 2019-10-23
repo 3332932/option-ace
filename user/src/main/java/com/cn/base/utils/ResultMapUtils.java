@@ -1,4 +1,6 @@
 package com.cn.base.utils;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -44,8 +46,11 @@ public class ResultMapUtils {
      *
      * @return
      */
-    public static Map<String, Object> getPageResultMap(Object data, Long total) {
+    public static Map<String, Object> getPageResult(Object data, Long total) {
         return getResultMap("0", "success", data, total);
+    }
+    public static Map<String, Object> getPageResult(IPage page) {
+        return getResultMap("0", "success", page.getRecords(), page.getTotal());
     }
 
     /**

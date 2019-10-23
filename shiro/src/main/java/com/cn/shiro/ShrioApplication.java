@@ -1,13 +1,13 @@
-package com.cn;
+package com.cn.shiro;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class JwtApplication {
+public class ShrioApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(JwtApplication.class, args);
+        SpringApplication.run(ShrioApplication.class, args);
     }
 
 }

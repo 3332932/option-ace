@@ -9,6 +9,8 @@ import java.util.List;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.experimental.Accessors;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -23,7 +25,8 @@ import javax.validation.constraints.NotNull;
  * @author ms.x
  * @since 2019-09-30
  */
-@Data
+@Getter
+@Setter
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
 @ApiModel("用户表")

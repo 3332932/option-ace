@@ -1,5 +1,6 @@
 # maven noise
 target/
+logs/
 
 # gradle noise
 .gradle
@@ -39,3 +40,6 @@ release.properties
 .factorypath
 
 rebel.xml
+
+
+
