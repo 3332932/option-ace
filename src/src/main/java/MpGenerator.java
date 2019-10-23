@@ -1,5 +1,3 @@
-package com.cn;
-
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
 import com.baomidou.mybatisplus.generator.config.*;
@@ -12,8 +10,8 @@ public class MpGenerator {
 //        assert (false) : "代码生成属于危险操作，请确定配置后取消断言执行代码生成！";
         AutoGenerator mpg = new AutoGenerator();
         // 选择 freemarker 引擎，默认 Velocity
-       String sourcePath = "E:\\belle\\phoenix-lmp\\phoenix-lmp-core\\src\\main\\java";
-       String basePackage = "com.belle.phoenix.lmp.core.test";
+       String sourcePath = "E:\\belle\\option-ace\\dynamicQuery\\src\\main\\java";
+       String basePackage = "com.cn.dynamicQuery";
 
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
@@ -57,7 +55,7 @@ public class MpGenerator {
                 .entityTableFieldAnnotationEnable(true)
                 .setRestControllerStyle(true)
                 .setEntityLombokModel(true)
-                .setInclude(new String[]{"edw_fact_base_out_store_detail,edw_fact_base_return_stock_detail"});
+                .setInclude(new String[]{"edw_fact_base_out_store_detail"});
         mpg.setStrategy(strategy);
 
         // 包配置
