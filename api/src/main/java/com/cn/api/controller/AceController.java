@@ -1,7 +1,7 @@
 package com.cn.api.controller;
 
 import com.cn.jwt.entity.JwtToken;
-import com.cn.entity.User;
+import com.cn.user.entity.User;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +16,6 @@ public class AceController {
     private JwtToken jwtToken;
 
     @GetMapping("test")
-    @RequiresPermissions("user:list")
     public Object test(){
         User user = new User();
         user.setUserName("admin");

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.cn.mapper.PermissionMapper">
+<mapper namespace="com.cn.user.mapper.PermissionMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.cn.entity.Permission">
+    <resultMap id="BaseResultMap" type="com.cn.user.entity.Permission">
         <id column="permission_id" property="permissionId" />
         <result column="permission_value" property="permissionValue" />
         <result column="permission_name" property="permissionName" />

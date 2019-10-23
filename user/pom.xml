@@ -46,7 +46,7 @@
                     <archive>
                         <manifest>
                             <!--定义main方法类-->
-                            <mainClass>com.cn.UserApplication</mainClass>
+                            <mainClass>com.cn.user.UserApplication</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
