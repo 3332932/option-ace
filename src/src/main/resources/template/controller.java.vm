@@ -12,7 +12,7 @@ import ${package.Entity}.${entity};
 import ${package.Service}.${table.serviceName};
 #set($entityName=${entity})
 #set($entityName=$entityName.substring(0,1).toLowerCase()+$entityName.substring(1,$entityName.length()))
-#set($apiName=$entityName+"Api")
+#set($apiName=$entityName+"ServiceImpl")
 #set($resourceNames=$entityName+"s")
 #set($insertMethod=$apiName+".save("+$entityName+")")
 #set($updateMethod=$apiName+".update("+$entityName+",wrapper)")
