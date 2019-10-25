@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cn.easyRpt.mapper.EasyRptExportMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cn.easyRpt.entity.EasyRptExport">
+        <id column="id" property="id" />
+        <result column="company_id" property="companyId" />
+        <result column="rpt_no" property="rptNo" />
+        <result column="rpt_name" property="rptName" />
+        <result column="rpt_url" property="rptUrl" />
+        <result column="select_sql" property="selectSql" />
+        <result column="sql_group_fields" property="sqlGroupFields" />
+        <result column="remarks" property="remarks" />
+        <result column="creator" property="creator" />
+        <result column="create_time" property="createTime" />
+        <result column="modifier" property="modifier" />
+        <result column="modify_time" property="modifyTime" />
+        <result column="del_tag" property="delTag" />
+        <result column="update_time" property="updateTime" />
+    </resultMap>
+
+</mapper>

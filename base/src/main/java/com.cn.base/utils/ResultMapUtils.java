@@ -81,7 +81,7 @@ public class ResultMapUtils {
         flag.put("retMsg", retMsg);
         map.put("flag", flag);
         if (data != null) {
-            map.put("data", data);
+            map.put("rows", data);
         }
         if (total != null) {
             map.put("total", total);

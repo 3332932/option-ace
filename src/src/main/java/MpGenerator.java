@@ -10,8 +10,8 @@ public class MpGenerator {
 //        assert (false) : "代码生成属于危险操作，请确定配置后取消断言执行代码生成！";
         AutoGenerator mpg = new AutoGenerator();
         // 选择 freemarker 引擎，默认 Velocity
-       String sourcePath = "E:\\belle\\option-ace\\dynamicQuery\\src\\main\\java";
-       String basePackage = "com.cn.dynamicQuery";
+       String sourcePath = "E:\\belle\\option-ace\\easyRpt\\src\\main\\java";
+       String basePackage = "com.cn.easyRpt";
 
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
@@ -55,7 +55,7 @@ public class MpGenerator {
                 .entityTableFieldAnnotationEnable(true)
                 .setRestControllerStyle(true)
                 .setEntityLombokModel(true)
-                .setInclude(new String[]{"edw_fact_base_out_store_detail"});
+                .setInclude(new String[]{"easy_rpt_export"});
         mpg.setStrategy(strategy);
 
         // 包配置
@@ -69,7 +69,7 @@ public class MpGenerator {
                 //dao层
                 .setMapper("mapper")
                 //dao层对应的xml文件
-                .setXml("mapper.xml")
+                .setXml("mapper.mapper")
                 //pojo对象
                 .setEntity("entity");
         mpg.setPackageInfo(packageConfig);

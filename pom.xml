@@ -11,6 +11,8 @@
         <module>api</module>
         <module>src</module>
         <module>dynamicDatasource</module>
+        <module>dynamicQuery</module>
+        <module>easyRpt</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

@@ -123,7 +123,7 @@ public class ShiroConfiguration {
     public EhCacheManager ehCacheManager() {
         logger.info("------------->shiroConfiguration.getEhCacheManager()执行");
         EhCacheManager cacheManager = new EhCacheManager();
-        cacheManager.setCacheManagerConfigFile("classpath:ehcache-shiro.xml");
+        cacheManager.setCacheManagerConfigFile("classpath:ehcache-shiro.mapper");
         return cacheManager;
     }
 
