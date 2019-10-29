@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cn.easyRpt.mapper.WhereConditionMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cn.easyRpt.entity.WhereCondition">
+        <id column="id" property="id" />
+        <result column="company_id" property="companyId" />
+        <result column="rpt_no" property="rptNo" />
+        <result column="where_key" property="whereKey" />
+        <result column="where_operator" property="whereOperator" />
+        <result column="where_replace_type" property="whereReplaceType" />
+        <result column="where_value" property="whereValue" />
+        <result column="where_type" property="whereType" />
+        <result column="where_type_map" property="whereTypeMap" />
+        <result column="where_type_data" property="whereTypeData" />
+        <result column="creator" property="creator" />
+        <result column="create_time" property="createTime" />
+        <result column="modifier" property="modifier" />
+        <result column="modify_time" property="modifyTime" />
+        <result column="status" property="status" />
+        <result column="column_width" property="columnWidth" />
+    </resultMap>
+
+</mapper>

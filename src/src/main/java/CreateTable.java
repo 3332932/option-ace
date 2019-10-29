@@ -1,4 +1,7 @@
+import com.cn.Cols;
 import com.cn.EasyRptExport;
+import com.cn.Where;
+import com.cn.base.utils.BaseUtil;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.IOException;
@@ -10,8 +13,7 @@ import java.util.regex.Pattern;
 
 public class CreateTable {
     public static Map<String, String> javaProperty2SqlColumnMap = new HashMap<>();
-    private static Pattern humpPattern = Pattern.compile("[A-Z]");
-    public boolean camelToUnderline=true;
+
   
     static {  
         javaProperty2SqlColumnMap.put("Integer_key", "INTEGER NOT NULL AUTO_INCREMENT COMMENT '主键'");
@@ -33,7 +35,7 @@ public class CreateTable {
      * @throws IOException 
      */  
     public static void main(String[] args) throws IOException {
-        createTable(EasyRptExport.class, null);
+        createTable(Where.class, null);
     }  
   
     public static String createTable(Class obj, String tableName) throws IOException {
@@ -45,7 +47,7 @@ public class CreateTable {
             tableName = obj.getName();
             tableName = tableName.substring(tableName.lastIndexOf(".") + 1);  
         }  
-        sb.append("create table ").append(humpToLine(tableName)).append(" ( \r\n");
+        sb.append("create table ").append(BaseUtil.humpToLine(tableName)).append(" ( \r\n");
         boolean isFirstId = true;
         String firstId = "";
         for (Field f : fields) {
@@ -58,7 +60,7 @@ public class CreateTable {
                 //如果字段类型不在定义的范围内，不生成sql
                 continue;
             }
-            sb.append(" `").append(humpToLine(column)).append("`");
+            sb.append(" `").append(BaseUtil.humpToLine(column)).append("`");
             if (isFirstId) {//类型转换
                 firstId=column;
                 isFirstId = false;
@@ -75,17 +77,4 @@ public class CreateTable {
         return sql;  
 
     }
-
-
-
-    public static String humpToLine(String str) {
-        Matcher matcher = humpPattern.matcher(str);
-        StringBuffer sb = new StringBuffer();
-        while (matcher.find()) {
-            matcher.appendReplacement(sb, "_" + matcher.group(0).toLowerCase());
-        }
-        matcher.appendTail(sb);
-        return sb.toString();
-    }
-
 } 

@@ -18,14 +18,14 @@ import io.swagger.annotations.ApiModelProperty;
  * </p>
  *
  * @author ms.x
- * @since 2019-10-24
+ * @since 2019-10-25
  */
 @Getter
 @Setter
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
 @ApiModel("")
-public class EasyRptExport implements Serializable {
+public class WhereCondition implements Serializable {
 
     private static final long serialVersionUID = 1L;
     public static final String RPT_NO = "rpt_no";
@@ -42,21 +42,27 @@ public class EasyRptExport implements Serializable {
     @TableField("rpt_no")
     @ApiModelProperty(value = "")
     private String rptNo;
-    @TableField("rpt_name")
+    @TableField("where_key")
     @ApiModelProperty(value = "")
-    private String rptName;
-    @TableField("rpt_url")
+    private String whereKey;
+    @TableField("where_operator")
     @ApiModelProperty(value = "")
-    private String rptUrl;
-    @TableField("select_sql")
+    private String whereOperator;
+    @TableField("where_replace_type")
     @ApiModelProperty(value = "")
-    private String selectSql;
-    @TableField("sql_group_fields")
+    private String whereReplaceType;
+    @TableField("where_value")
     @ApiModelProperty(value = "")
-    private String sqlGroupFields;
-    @TableField("remarks")
+    private String whereValue;
+    @TableField("where_type")
     @ApiModelProperty(value = "")
-    private String remarks;
+    private String whereType;
+    @TableField("where_type_map")
+    @ApiModelProperty(value = "")
+    private String whereTypeMap;
+    @TableField("where_type_data")
+    @ApiModelProperty(value = "")
+    private String whereTypeData;
     @TableField("creator")
     @ApiModelProperty(value = "")
     private String creator;
@@ -69,12 +75,11 @@ public class EasyRptExport implements Serializable {
     @TableField("modify_time")
     @ApiModelProperty(value = "")
     private LocalDateTime modifyTime;
-    @TableField("del_tag")
+    @TableField("status")
     @ApiModelProperty(value = "")
-    private String delTag;
-    @TableField("update_time")
+    private Integer status;
+    @TableField("column_width")
     @ApiModelProperty(value = "")
-    private LocalDateTime updateTime;
-
+    private Integer columnWidth;
 
 }

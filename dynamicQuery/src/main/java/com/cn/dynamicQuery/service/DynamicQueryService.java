@@ -1,8 +1,5 @@
 package com.cn.dynamicQuery.service;
 
-import com.cn.dynamicQuery.entity.EdwFactBaseOutStoreDetail;
-import com.baomidou.mybatisplus.extension.service.IService;
-
 import java.util.List;
 import java.util.Map;
 

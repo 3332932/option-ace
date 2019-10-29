@@ -18,17 +18,17 @@ import io.swagger.annotations.ApiModelProperty;
  * </p>
  *
  * @author ms.x
- * @since 2019-10-24
+ * @since 2019-10-25
  */
 @Getter
 @Setter
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
 @ApiModel("")
-public class EasyRptExport implements Serializable {
+public class Cols implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    public static final String RPT_NO = "rpt_no";
+    public static final String RPTNO = "rpt_no";
 
     /**
      * 主键
@@ -42,30 +42,24 @@ public class EasyRptExport implements Serializable {
     @TableField("rpt_no")
     @ApiModelProperty(value = "")
     private String rptNo;
-    @TableField("rpt_name")
+    @TableField("column_group_name")
     @ApiModelProperty(value = "")
-    private String rptName;
-    @TableField("rpt_url")
+    private String columnGroupName;
+    @TableField("column_name")
     @ApiModelProperty(value = "")
-    private String rptUrl;
-    @TableField("select_sql")
+    private String columnName;
+    @TableField("column_value")
     @ApiModelProperty(value = "")
-    private String selectSql;
-    @TableField("sql_group_fields")
+    private String columnValue;
+    @TableField("column_type")
     @ApiModelProperty(value = "")
-    private String sqlGroupFields;
-    @TableField("remarks")
-    @ApiModelProperty(value = "")
-    private String remarks;
+    private String columnType;
     @TableField("creator")
     @ApiModelProperty(value = "")
     private String creator;
     @TableField("create_time")
     @ApiModelProperty(value = "")
     private LocalDateTime createTime;
-    @TableField("modifier")
-    @ApiModelProperty(value = "")
-    private String modifier;
     @TableField("modify_time")
     @ApiModelProperty(value = "")
     private LocalDateTime modifyTime;
@@ -75,6 +69,12 @@ public class EasyRptExport implements Serializable {
     @TableField("update_time")
     @ApiModelProperty(value = "")
     private LocalDateTime updateTime;
+    @TableField("status")
+    @ApiModelProperty(value = "")
+    private Integer status;
+ @TableField("column_width")
+    @ApiModelProperty(value = "")
+    private Integer columnWidth;
 
 
 }

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cn.easyRpt.mapper.DynamicQueryMapper">
+    <select id="dynamicQuery" resultType="java.util.Map">
+        ${sql}
+    </select>
+    <select id="dynamicQueryWrapper" resultType="java.util.Map">
+        ${sql}
+        <choose>
+            <when test="condition">
+                and ${ew.sqlSegment}
+            </when>
+            <otherwise>
+                ${ew.sqlSegment}
+            </otherwise>
+        </choose>
+    </select>
+
+</mapper>

@@ -55,7 +55,7 @@ public class MpGenerator {
                 .entityTableFieldAnnotationEnable(true)
                 .setRestControllerStyle(true)
                 .setEntityLombokModel(true)
-                .setInclude(new String[]{"easy_rpt_export"});
+                .setInclude(new String[]{"where_condition"});
         mpg.setStrategy(strategy);
 
         // 包配置
