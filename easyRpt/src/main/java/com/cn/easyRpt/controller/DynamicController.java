@@ -35,8 +35,8 @@ public class DynamicController {
         EasyRptExport rptExport = easyRptExportServiceImpl.getOne(
                 new QueryWrapper<EasyRptExport>().eq(EasyRptExport.RPT_NO,rptNo));
         SqlBuilder sqlBuilder = SqlParser.parse(rptExport.getSelectSql());
-        page.setRecords(dynamicQueryServiceImpl.dynamicQuery(
-                page, sqlBuilder.build(), queryWrapper));
+        List<Map<String, Object>> maps = dynamicQueryServiceImpl.dynamicQuery(page, sqlBuilder.build(), queryWrapper);
+        page.setRecords(maps);
         return ResultMapUtils.getPageResult(page);
     }
 
@@ -50,9 +50,7 @@ public class DynamicController {
         }
         //sql =  EasyUtils.sqlWhereHandler(sql);
         Map<String, Object> resultMap = ResultMapUtils.getSuccessResultMap();
-        List<Map<String, Object>> maps = dynamicQueryServiceImpl.dynamicQuery(sql);
-        Set<String> strings = maps.get(0).keySet();
-
+        List<String> strings = dynamicQueryServiceImpl.getSqlColumnMetaData(sql);
         resultMap.put("rows", strings);
 
         return resultMap;

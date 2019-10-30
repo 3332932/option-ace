@@ -27,12 +27,12 @@ public class SqlParser {
 		SqlBuilder sqlBuilder = new SqlBuilder();
 		baseSql = format(baseSql);
 
-		int selectIndex = baseSql.indexOf("select ");
-		int fromIndex = baseSql.indexOf(" from ");
-		int whereIndex = baseSql.indexOf(" where ");
-		int groupByIndex = baseSql.indexOf(" group by ");
-		int havingIndex = baseSql.indexOf(" having ");
-		int orderByIndex = baseSql.indexOf(" order by ");
+		int selectIndex = baseSql.toLowerCase().indexOf("select ");
+		int fromIndex = baseSql.toLowerCase().indexOf(" from ");
+		int whereIndex = baseSql.toLowerCase().indexOf(" where ");
+		int groupByIndex = baseSql.toLowerCase().indexOf(" group by ");
+		int havingIndex = baseSql.toLowerCase().indexOf(" having ");
+		int orderByIndex = baseSql.toLowerCase().indexOf(" order by ");
 
 		// 切割select部分
 		String selectSegment = baseSql.substring(selectIndex + 7, fromIndex);
@@ -93,7 +93,7 @@ public class SqlParser {
 				builder.append(" ");
 			}
 		}
-		return builder.toString().toLowerCase();
+		return builder.toString();
 	}
 
 	/**

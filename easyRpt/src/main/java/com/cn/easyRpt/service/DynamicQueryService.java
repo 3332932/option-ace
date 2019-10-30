@@ -21,4 +21,6 @@ public interface DynamicQueryService {
     List<Map<String, Object>> dynamicQuery(Page page, String sql, QueryWrapper wrapper);
 
     List<Map<String, Object>> dynamicQuery(String sql);
+
+    List<String> getSqlColumnMetaData(String sql);
 }
